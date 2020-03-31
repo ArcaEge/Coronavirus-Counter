@@ -24,9 +24,20 @@
         <li class="nav-item">
           <a class="nav-link" href="/countries">Countries</a>
         </li>
+        <li class="nav-item d-lg-none bg-light">
+          <a class="nav-link" href="https://github.com/ArcaEge/Coronavirus-Counter"><img src="/pngimages2" style="margin-right: 5px" width="23px" class=" add_spacing"><span class="text-body">View on GitHub</span></a>
+        </li>
+        <li class="nav-item d-none d-lg-block float-right">
+          <a class="nav-link btn btn-light" href="https://github.com/ArcaEge/Coronavirus-Counter"><img src="/pngimages2" style="margin-right: 5px" width="23px"><span class="text-body">View on GitHub</span></a>
+        </li>
       </ul>
     </div>
     </nav>
+    <style>
+      .add_spacing {
+        margin-left: 5px;
+      }
+    </style>
     {% block body %}{% endblock %}
   </body>
 </html>

@@ -1,5 +1,5 @@
 import requests
-from flask import Flask, render_template, redirect
+from flask import Flask, render_template, redirect, send_file
 
 app = Flask(__name__)
 
@@ -16,6 +16,16 @@ recovered_all = all.json()['recovered']
 @app.route('/')
 def home():
     return render_template('map.html')
+
+
+@app.route('/pngimages')
+def images():
+    return send_file('Github.png', mimetype='image/png')
+
+
+@app.route('/pngimages2')
+def images2():
+    return send_file('GithubLight.png', mimetype='image/png')
 
 
 @app.route('/worldwide')

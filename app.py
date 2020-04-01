@@ -59,4 +59,5 @@ def country_details(name_of_country):
 
 
 if __name__ == '__main__':
+    print(0)
     app.run()

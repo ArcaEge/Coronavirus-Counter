@@ -28,6 +28,11 @@ def images2():
     return send_file('GithubLight.png', mimetype='image/png')
 
 
+@app.route('/icologo')
+def logo():
+    return send_file('Logo.ico', mimetype='image/x-icon')
+
+
 @app.route('/worldwide')
 def world():
     cases_formatted = '{:,d}'.format(cases_all)

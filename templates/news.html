@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% block head %}
+<title>Coronavirus Counter - News</title>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+{% endblock %}
+{% block body %}
+<div id="scrollcontent">
+  <div class="container page">
+    <h1 style="margin-top: 70px">Coronavirus News<small><p class="inline float-bottom" style="font-size: 12px">News by <a href="https://www.theguardian.com">The Guardian</a></p></small></h1>
+    <div class="jumbotron">
+      <div class="input-group">
+      <div class="input-group-prepend">
+      <span class="input-group-text"><i class="material-icons">search</i></span>
+      </div>
+      <input class="form-control" id="myInput" type="text" placeholder="Search"></div>
+    </div>
+    {% for content in news %}
+    <div class="container jumbotron" id="module">
+      <div>
+        <img src="{{content.thumbnail}}" class="img-responsive img-thumbnail float-right">
+        <h2>{{content.headline}}<small><i> by </i>{{content.byline}}</small></h2>
+        <div class="body_text collapse" id="collapseExample" aria-expanded="false">
+          {{content.body}}
+        </div>
+        <a role="button" class="collapsed btn btn-secondary button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample" style="margin-top: 10px"></a>
+      </div>
+      <style>
+      #module {
+        font-size: 1rem;
+        line-height: 1.5;
+      }
+
+      #module #collapseExample.collapse:not(.show) {
+        display: block;
+        height: 13rem;
+        overflow: hidden;
+      }
+
+      #module #collapseExample.collapsing {
+        height:13rem;
+      }
+
+      #module .button.collapsed:after {
+        content: 'Show More';
+      }
+
+      #module .button:not(.collapsed):after {
+        content: 'Show Less';
+      }
+      </style>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+<style>
+  img.body_text {
+    display: none;
+  }
+</style>
+<script>
+  $(document).ready(function(){
+    $("#myInput").on("keyup", function() {
+      var value = $(this).val().toLowerCase();
+      $("#module").filter(function() {
+        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+      });
+    });
+  });
+</script>
+{% endblock %}

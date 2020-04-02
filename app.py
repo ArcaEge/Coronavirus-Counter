@@ -1,5 +1,5 @@
 import requests
-from flask import Flask, render_template, redirect, send_file
+from flask import Flask, render_template, redirect, send_file, Markup
 
 app = Flask(__name__)
 
@@ -16,6 +16,26 @@ recovered_all = all.json()['recovered']
 @app.route('/')
 def home():
     return render_template('map.html')
+
+
+@app.route('/news')
+def news():
+    request = requests.get("https://content.guardianapis.com/search?show-fields=all&page-size=200&q=coronavirus&api-key=a7daa1b5-293f-44dc-b5d2-81e552e1a7d7")
+    JSON = request.json()
+    to_return = JSON["response"]["results"]
+    nws = []
+    # print(to_return[9].get("headline"))
+    for news in to_return:
+        nw = {
+        "webUrl": news["webUrl"],
+        "headline": news["fields"].get("headline"),
+        "byline": news["fields"].get("byline"),
+        "thumbnail": news["fields"].get("thumbnail"),
+        "charCount": news["fields"].get("charCount"),
+        "body": Markup(news["fields"].get("body").replace("h2", "h4").replace("h1", "h4"))
+        }
+        nws.append(nw)
+    return render_template('news.html', news=nws)
 
 
 @app.route('/pngimages')

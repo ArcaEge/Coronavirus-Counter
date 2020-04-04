@@ -43,6 +43,11 @@ def images():
     return send_file('Github.png', mimetype='image/png')
 
 
+@app.route('/mapjavascript')
+def js():
+    return send_file('map.js', mimetype='text/javascript')
+
+
 @app.route('/pngimages2')
 def images2():
     return send_file('GithubLight.png', mimetype='image/png')

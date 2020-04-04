@@ -1,10 +1,10 @@
 import requests
-from flask import Flask, render_template, redirect, send_file, Markup
+from flask import Flask, render_template, redirect, send_file, Markup, request
 
 app = Flask(__name__)
 
 all = requests.get('https://coronavirus-19-api.herokuapp.com/all')
-countries = requests.get('https://coronavirus-19-api.herokuapp.com/countries')
+countries = requests.get('https://corona.lmao.ninja/countries')
 a = countries.json()
 
 
@@ -20,7 +20,7 @@ def home():
 
 @app.route('/news')
 def news():
-    request = requests.get("https://content.guardianapis.com/search?show-fields=all&page-size=200&q=coronavirus&api-key=a7daa1b5-293f-44dc-b5d2-81e552e1a7d7")
+    request = requests.get("https://content.guardianapis.com/search?show-fields=all&page-size=100&q=coronavirus&api-key=a7daa1b5-293f-44dc-b5d2-81e552e1a7d7")
     JSON = request.json()
     to_return = JSON["response"]["results"]
     nws = []
@@ -31,11 +31,33 @@ def news():
         "headline": news["fields"].get("headline"),
         "byline": news["fields"].get("byline"),
         "thumbnail": news["fields"].get("thumbnail"),
-        "charCount": news["fields"].get("charCount"),
+        "id": news["id"],
         "body": Markup(news["fields"].get("body").replace("h2", "h4").replace("h1", "h4"))
         }
         nws.append(nw)
     return render_template('news.html', news=nws)
+
+
+@app.route('/newscontent', methods=['GET'])
+def new():
+    ID = request.args.get("id")
+    urll = "https://content.guardianapis.com/{}?show-fields=all&api-key=a7daa1b5-293f-44dc-b5d2-81e552e1a7d7".format(ID)
+    requestAPI = requests.get(urll)
+
+    JSON = requestAPI.json()
+    to_return = JSON.get("response")
+    content = to_return.get("content")
+    fields = content.get("fields")
+    nw = {
+    "webUrl": content.get("webUrl"),
+    "sectionName": content.get("sectionName"),
+    "headline": fields.get("headline"),
+    "byline": fields.get("byline"),
+    "thumbnail": fields.get("thumbnail"),
+    "trailText": fields.get("trailText"),
+    "body": Markup(fields.get("body").replace("h2", "h4").replace("h1", "h3"))
+    }
+    return render_template('newscont.html', news=nw)
 
 
 @app.route('/pngimages')

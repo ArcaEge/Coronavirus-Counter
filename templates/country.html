@@ -8,9 +8,9 @@
   <i class='fas fa-angle-left' style='font-size:24px'></i> <span style="vertical-align: top">Back</span>
   </a>
 </div>
-<h1 class="container align-center">Cases in {{ b.country }}</h1>
-<div class="container jumbotron" style="padding-top: 30px">
-  <table class="table table-borderless d-lg-none">
+<h1 class="container align-center">Cases in {{ b.country }} <img src="{{b.countryInfo.flag}}" width="100"></h1>
+<div class="container" style="padding-top: 5px">
+  <table class="table d-lg-none">
     <thead>
       <tr>
         <th>Cases</th>
@@ -27,7 +27,7 @@
     </tbody>
   </table>
   <br>
-  <table class="table table-borderless d-lg-none">
+  <table class="table d-lg-none">
     <thead>
       <tr>
         <th>Critical Cases</th>
@@ -39,12 +39,12 @@
       <tr>
         <td>{{ '{:,}'.format(b.critical) }}</td>
         <td>{{ '{:,}'.format(b.active) }}</td>
-        <td>{{ '{:,}'.format(b.todayCases) }}</td>
+        <td class="bg-warning"><strong>{{ '{:,}'.format(b.todayCases) }}</strong></td>
       </tr>
     </tbody>
   </table>
   <br>
-  <table class="table table-borderless d-lg-none">
+  <table class="table d-lg-none">
     <thead>
       <tr>
         <th>New Deaths</th>
@@ -54,14 +54,14 @@
     </thead>
     <tbody>
       <tr>
-        <td>{{ '{:,}'.format(b.todayDeaths) }}</td>
+        <td class="bg-danger text-white"><strong>{{ '{:,}'.format(b.todayDeaths) }}</strong></td>
         <td>{{ '{:,}'.format(b.casesPerOneMillion) }}</td>
         <td>{{ '{:,}'.format(b.deathsPerOneMillion) }}</td>
       </tr>
     </tbody>
   </table>
   <br>
-  <table class="table table-borderless d-none d-lg-block">
+  <table class="table d-none d-lg-block">
     <thead>
       <tr>
         <th>Cases</th>
@@ -78,12 +78,12 @@
     <tbody>
       <tr>
         <td>{{ '{:,}'.format(b.cases) }}</td>
-        <td>{{ '{:,}'.format(b.todayCases) }}</td>
+        <td class="bg-warning"><strong>{{ '{:,}'.format(b.todayCases) }}</strong></td>
         <td>{{ '{:,}'.format(b.active) }}</td>
         <td>{{ '{:,}'.format(b.recovered) }}</td>
         <td>{{ '{:,}'.format(b.critical) }}</td>
         <td>{{ '{:,}'.format(b.deaths) }}</td>
-        <td>{{ '{:,}'.format(b.todayDeaths) }}</td>
+        <td class="bg-danger text-white"><strong>{{ '{:,}'.format(b.todayDeaths) }}</strong></td>
         <td>{{ '{:,}'.format(b.casesPerOneMillion) }}</td>
         <td>{{ '{:,}'.format(b.deathsPerOneMillion) }}</td>
       </tr>
@@ -91,4 +91,9 @@
     </tbody>
   </table>
 </div>
+<style media="screen">
+  tbody {
+    text-align: center;
+  }
+</style>
 {% endblock %}

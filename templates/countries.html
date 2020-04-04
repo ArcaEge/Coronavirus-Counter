@@ -14,16 +14,16 @@
   <table class="table table-borderless">
     <thead>
       <tr>
-        <th>Country</th>
-        <th>Cases</th>
-        <th>Recovered</th>
-        <th>Deaths</th>
+          <th>Country</th>
+          <th>Cases</th>
+          <th>Recovered</th>
+          <th>Deaths</th>
       </tr>
     </thead>
     <tbody id="myTable">
       {% for i in a %}
       <tr id="{{ i.country }}">
-        <td><a href="/countries/{{i.country}}" class="btn btn-link">{{ i.country }}</a></td>
+        <td><a href="/countries/{{i.country}}" class="btn btn-link"><img src="{{i.countryInfo.flag}}" width="40"> {{ i.country }}</a></td>
         <td>{{ '{:,}'.format(i.cases) }}</td>
         <td>{{ '{:,}'.format(i.recovered) }}</td>
         <td>{{ '{:,}'.format(i.deaths) }}</td>

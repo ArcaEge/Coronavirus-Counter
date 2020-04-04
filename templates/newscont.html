@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block head %}
+<title>Coronavirus Counter - {news.headline}</title>
+{% endblock %}
+{% block body %}
+<div style="margin-top: 65px"></div>
+<a href="/news" class="btn btn-light btn-lg">
+<div class="container">
+  <i class='fas fa-angle-left' style='font-size:24px'></i> <span style="vertical-align: top">Back</span>
+  </a>
+  <h1>{{news.headline}} <span class="badge badge-primary">{{news.sectionName}}</span><a role="button" class="btn btn-danger button inline" href="{{news.webUrl}}" style="margin-left: 20px">View in The Guardian</a></h1>
+  <h3>{{news.trailText}}</h3>
+  <h5>by {{ news.byline }}</h5>
+  <div>
+    <img src="{{news.thumbnail}}" class="img-responsive img-thumbnail float-right" margin="5px">
+    <div class="body_text">
+      {{ news.body }}
+    </div>
+  </div>
+</div>
+<style media="screen">
+  .body_text img {
+    display: none;
+  }
+</style>
+{% endblock %}

@@ -1,3 +1,4 @@
+window.location.reload(true);
 sessionStorage.clear();
 localStorage.clear();
 am4core.ready(function() {

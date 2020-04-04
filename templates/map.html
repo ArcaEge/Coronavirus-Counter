@@ -34,5 +34,10 @@ document.getElementById('myScript').src = resourcePath + '?v=' + Date.now();
 </script>
 
 <!-- HTML -->
-<div id="chartdiv" style="margin-top: 55px"></div>
+<div style="margin-top: 60px"></div>
+<div class="alert alert-dark alert-dismissible" style="margin-bottom: 0px">
+  <button type="button" class="close btn" data-dismiss="alert">&times;</button>
+  <a onclick="window.location.reload(true)" class="alert-link" href="#"><span>Click here to refresh the data.</span></a>
+</div>
+<div id="chartdiv"></div>
 {% endblock %}

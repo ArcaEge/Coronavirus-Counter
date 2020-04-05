@@ -31,6 +31,8 @@ def news():
         "headline": news["fields"].get("headline"),
         "byline": news["fields"].get("byline"),
         "thumbnail": news["fields"].get("thumbnail"),
+        "trailText": Markup(news["fields"].get("trailText")),
+        "sectionName": news["sectionName"],
         "id": news["id"],
         "body": Markup(news["fields"].get("body").replace("h2", "h4").replace("h1", "h4"))
         }
@@ -54,7 +56,7 @@ def new():
     "headline": fields.get("headline"),
     "byline": fields.get("byline"),
     "thumbnail": fields.get("thumbnail"),
-    "trailText": fields.get("trailText"),
+    "trailText": Markup(fields.get("trailText")),
     "body": Markup(fields.get("body").replace("h2", "h4").replace("h1", "h3"))
     }
     return render_template('newscont.html', news=nw)

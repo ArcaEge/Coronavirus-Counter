@@ -11,7 +11,7 @@
     <span class="input-group-text"><i class="material-icons">search</i></span>
   </div>
   <input class="form-control" id="myInput" type="text" placeholder="Search"></div>
-  <table class="table table-borderless">
+  <table class="table table-borderless table-responsive-sm">
     <thead>
       <tr>
           <th>Country</th>
@@ -23,7 +23,7 @@
     <tbody id="myTable">
       {% for i in a %}
       <tr id="{{ i.country }}">
-        <td><a href="/countries/{{i.country}}" class="btn btn-link"><img src="{{i.countryInfo.flag}}" width="40"> {{ i.country }}</a></td>
+        <td><a href="/countries/{{i.country}}" class="btn btn-link" style="text-align: left;"><img src="{{i.countryInfo.flag}}" width="40" class="img-responsive float-left"> {{ i.country }}</a></td>
         <td>{{ '{:,}'.format(i.cases) }}</td>
         <td>{{ '{:,}'.format(i.recovered) }}</td>
         <td>{{ '{:,}'.format(i.deaths) }}</td>

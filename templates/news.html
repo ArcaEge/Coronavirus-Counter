@@ -7,18 +7,20 @@
 <div id="scrollcontent">
   <div class="container page">
     <h1 style="margin-top: 70px">Coronavirus News<small><p class="inline float-bottom" style="font-size: 12px">News by <a href="https://www.theguardian.com">The Guardian</a></p></small></h1>
-    <div class="jumbotron">
+    <!-- <div class="jumbotron">
       <div class="input-group">
       <div class="input-group-prepend">
       <span class="input-group-text"><i class="material-icons">search</i></span>
       </div>
       <input class="form-control" id="myInput" type="text" placeholder="Search"></div>
-    </div>
+    </div> -->
     {% for content in news %}
     <div class="container jumbotron" id="module">
       <div>
-        <img src="{{content.thumbnail}}" class="img-responsive img-thumbnail float-right" margin="5px">
-        <h2>{{content.headline}}<small><i> by </i>{{content.byline}}</small></h2>
+        <img src="{{content.thumbnail}}" class="img-responsive img-thumbnail float-right" margin="10px">
+        <h2 id="to_search">{{content.headline}} <span class="badge badge-primary">{{content.sectionName}}</span></h2>
+        <h4>{{content.trailText}}</h4>
+        <h5>by {{ content.byline }}</h5>
         <div class="body_text collapse" id="collapseExample" aria-expanded="false">
           {{content.body}}
         </div>
@@ -48,14 +50,14 @@
     display: none;
   }
 </style>
-<script>
+<!-- <script>
   $(document).ready(function(){
     $("#myInput").on("keyup", function() {
       var value = $(this).val().toLowerCase();
-      $("#module").filter(function() {
+      $("#module h2").filter(function() {
         $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
       });
     });
   });
-</script>
+</script> -->
 {% endblock %}

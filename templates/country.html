@@ -54,13 +54,26 @@
     </thead>
     <tbody>
       <tr>
-        <td class="bg-danger text-white"><strong>{{ '{:,}'.format(b.todayDeaths) }}</strong></td>
+        <td><strong>{{ '{:,}'.format(b.todayDeaths) }}</strong></td>
         <td>{{ '{:,}'.format(b.casesPerOneMillion) }}</td>
         <td>{{ '{:,}'.format(b.deathsPerOneMillion) }}</td>
       </tr>
     </tbody>
   </table>
-  <br>
+  <table class="table d-lg-none">
+    <thead>
+      <tr>
+        <th>Total Tests</th>
+        <th>Tests per Million</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="bg-danger text-white"><strong>{{ '{:,}'.format(b.tests) }}</strong></td>
+        <td>{{ '{:,}'.format(b.testsPerOneMillion) }}</td>
+      </tr>
+    </tbody>
+  </table>
   <table class="table d-none d-lg-block">
     <thead>
       <tr>
@@ -70,9 +83,6 @@
         <th>Recovered</th>
         <th>Critical Cases</th>
         <th>Deaths</th>
-        <th>New Deaths</th>
-        <th>Cases per Million</th>
-        <th>Deaths per Million</th>
       </tr>
     </thead>
     <tbody>
@@ -83,11 +93,28 @@
         <td>{{ '{:,}'.format(b.recovered) }}</td>
         <td>{{ '{:,}'.format(b.critical) }}</td>
         <td>{{ '{:,}'.format(b.deaths) }}</td>
-        <td class="bg-danger text-white"><strong>{{ '{:,}'.format(b.todayDeaths) }}</strong></td>
+      </a>
+    </tbody>
+  </table>
+  <table class="table d-none d-lg-block">
+    <thead>
+      <tr>
+        <th>New Deaths</th>
+        <th>Cases per Million</th>
+        <th>Deaths per Million</th>
+        <th>Tests</th>
+        <th>Tests per Million</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <tr>
+        <td><strong>{{ '{:,}'.format(b.todayDeaths) }}</strong></td>
         <td>{{ '{:,}'.format(b.casesPerOneMillion) }}</td>
         <td>{{ '{:,}'.format(b.deathsPerOneMillion) }}</td>
+        <td>{{ '{:,}'.format(b.tests) }}</td>
+        <td>{{ '{:,}'.format(b.testsPerOneMillion) }}</td>
       </tr>
-      </a>
     </tbody>
   </table>
 </div>

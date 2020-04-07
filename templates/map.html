@@ -36,8 +36,9 @@ document.getElementById('myScript').src = resourcePath + '?v=' + Date.now();
 <!-- HTML -->
 <div style="margin-top: 60px"></div>
 <div class="alert alert-dark alert-dismissible" style="margin-bottom: 0px">
-  <button type="button" class="close btn" data-dismiss="alert">&times;</button>
-  <a onclick="window.location.reload(true)" class="alert-link" href="#"><span>Click here to refresh the data.</span></a>
+  <button type="button" class="close btn" data-dismiss="alert" style="vertical-align: middle;">&times;</button>
+  <a onclick="javascript:location.reload(true)" class="alert-link"><span>Click here to refresh the data.</span></a>
+  <small> If this does not work, try pressing <kbd>ctrl + F5</kbd> or <kbd>command + F5</kbd>.</small>
 </div>
 <div id="chartdiv"></div>
 {% endblock %}

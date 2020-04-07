@@ -5,13 +5,13 @@
 {% block body %}
 <!-- HTML -->
 <h1 style="padding-top: 70px" class="container align-center">Countries</h1>
-<div class="container jumbotron" style="padding-top: 30px">
+<div class="container" style="padding-top: 30px">
   <div class="input-group">
   <div class="input-group-prepend">
     <span class="input-group-text"><i class="material-icons">search</i></span>
   </div>
   <input class="form-control" id="myInput" type="text" placeholder="Search"></div>
-  <table class="table table-borderless table-responsive-sm">
+  <table class="table table-responsive-sm" style="margin-top: 20px">
     <thead>
       <tr>
           <th>Country</th>
@@ -23,7 +23,7 @@
     <tbody id="myTable">
       {% for i in a %}
       <tr id="{{ i.country }}">
-        <td><a href="/countries/{{i.country}}" class="btn btn-link" style="text-align: left;"><img src="{{i.countryInfo.flag}}" width="40" class="img-responsive float-left"> {{ i.country }}</a></td>
+        <td><a href="/countries/{{i.country}}" class="btn btn-link" style="text-align: left;"><img src="{{i.countryInfo.flag}}" width="40" class="img-responsive float-left" style="margin-right: 5px"> {{ i.country }}</a></td>
         <td>{{ '{:,}'.format(i.cases) }}</td>
         <td>{{ '{:,}'.format(i.recovered) }}</td>
         <td>{{ '{:,}'.format(i.deaths) }}</td>

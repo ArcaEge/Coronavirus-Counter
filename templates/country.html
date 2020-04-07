@@ -54,7 +54,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><strong>{{ '{:,}'.format(b.todayDeaths) }}</strong></td>
+        <td class="bg-danger text-white"><strong>{{ '{:,}'.format(b.todayDeaths) }}</strong></td>
         <td>{{ '{:,}'.format(b.casesPerOneMillion) }}</td>
         <td>{{ '{:,}'.format(b.deathsPerOneMillion) }}</td>
       </tr>
@@ -69,7 +69,7 @@
     </thead>
     <tbody>
       <tr>
-        <td class="bg-danger text-white"><strong>{{ '{:,}'.format(b.tests) }}</strong></td>
+        <td><strong>{{ '{:,}'.format(b.tests) }}</strong></td>
         <td>{{ '{:,}'.format(b.testsPerOneMillion) }}</td>
       </tr>
     </tbody>
@@ -109,7 +109,7 @@
     <tbody>
       <tr>
         <tr>
-        <td><strong>{{ '{:,}'.format(b.todayDeaths) }}</strong></td>
+        <td class="bg-danger text-white"><strong>{{ '{:,}'.format(b.todayDeaths) }}</strong></td>
         <td>{{ '{:,}'.format(b.casesPerOneMillion) }}</td>
         <td>{{ '{:,}'.format(b.deathsPerOneMillion) }}</td>
         <td>{{ '{:,}'.format(b.tests) }}</td>

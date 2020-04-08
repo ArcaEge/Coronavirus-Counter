@@ -6,30 +6,35 @@
 {% block body %}
 <!-- HTML -->
 <h1 style="padding-top: 70px" class="container align-center" id="top">Countries</h1>
-<div class="container" style="padding-top: 30px">
+<div class="container">
+  <p>Click or tap on the table headings to sort the table</p>
   <div class="input-group">
   <div class="input-group-prepend">
     <span class="input-group-text"><i class="material-icons">search</i></span>
   </div>
   <input class="form-control" id="myInput" type="text" placeholder="Search"></div>
-  <table class="table table-responsive-sm sortable" style="margin-top: 20px">
-    <thead>
-      <tr>
-          <th>Country</th>
-          <th>Cases</th>
-          <th>Recovered</th>
-          <th>Deaths</th>
-      </tr>
-    </thead>
+  <table class="table table-responsive-sm sortable sticky-header" style="margin-top: 20px">
+    <div class="header">
+      <thead>
+        <tr>
+          <th class="sticky-top">Country</th>
+          <th class="sticky-top">Cases</th>
+          <th class="sticky-top">Recovered</th>
+          <th class="sticky-top">Deaths</th>
+        </tr>
+      </thead>
+    </div>
     <tbody id="myTable">
-      {% for i in a %}
-      <tr id="{{ i.country }}">
-        <td><a href="/countries/{{i.country}}" class="btn btn-link" style="text-align: left;"><img src="{{i.countryInfo.flag}}" width="40" class="img-responsive float-left" style="margin-right: 5px"> {{ i.country }}</a></td>
-        <td>{{ '{:,}'.format(i.cases) }}</td>
-        <td>{{ '{:,}'.format(i.recovered) }}</td>
-        <td>{{ '{:,}'.format(i.deaths) }}</td>
-      </tr>
-      {% endfor %}
+      <div class="content">
+        {% for i in a %}
+        <tr id="{{ i.country }}">
+          <td><a href="/countries/{{i.country}}" class="btn btn-link" style="text-align: left;"><img src="{{i.countryInfo.flag}}" width="40" class="img-responsive float-left" style="margin-right: 5px"> {{ i.country }}</a></td>
+          <td>{{ '{:,}'.format(i.cases) }}</td>
+          <td>{{ '{:,}'.format(i.recovered) }}</td>
+          <td>{{ '{:,}'.format(i.deaths) }}</td>
+        </tr>
+        {% endfor %}
+      </div>
     </tbody>
   </table>
 </div>
@@ -46,7 +51,6 @@ z-index: 99;
 <script type="text/javascript">
 mybutton = document.getElementById("myBtn");
 
-// When the user scrolls down 20px from the top of the document, show the button
 window.onscroll = function() {scrollFunction()};
 
 function scrollFunction() {
@@ -59,27 +63,20 @@ if (document.body.scrollTop > 120 || document.documentElement.scrollTop > 120) {
 </script>
 <script>
 $(document).ready(function(){
-  // Add smooth scrolling to all links
+
   $("a").on('click', function(event) {
 
-    // Make sure this.hash has a value before overriding default behavior
     if (this.hash !== "") {
-      // Prevent default anchor click behavior
       event.preventDefault();
-
-      // Store hash
       var hash = this.hash;
 
-      // Using jQuery's animate() method to add smooth page scroll
-      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
       $('html, body').animate({
         scrollTop: $(hash).offset().top
       }, 500, function(){
 
-        // Add hash (#) to URL when done scrolling (default click behavior)
         window.location.hash = hash;
       });
-    } // End if
+    }
   });
 });
 </script>

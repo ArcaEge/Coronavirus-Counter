@@ -9,7 +9,7 @@
   </a>
 </div>
 <h1 class="container align-center">Cases in {{ b.country }} <img src="{{b.countryInfo.flag}}" width="100"></h1>
-<div class="container" style="padding-top: 5px">
+<div class="container table-responsive" style="padding-top: 5px">
   <table class="table d-lg-none">
     <thead>
       <tr>
@@ -119,8 +119,9 @@
   </table>
 </div>
 <style media="screen">
-  tbody {
+  table {
     text-align: center;
+    width: 100%;
   }
 </style>
 {% endblock %}

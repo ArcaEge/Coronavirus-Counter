@@ -15,6 +15,7 @@ recovered_all = all.json()['recovered']
 
 @app.route('/')
 def home():
+    returned = requests.post('https://api.thingspeak.com/update?api_key=CD5Z8Z4DFQD6QF84&field1=0')
     return render_template('map.html')
 
 
@@ -37,6 +38,7 @@ def news():
         "body": Markup(news["fields"].get("body").replace("h2", "h4").replace("h1", "h4"))
         }
         nws.append(nw)
+    returned = requests.post('https://api.thingspeak.com/update?api_key=CD5Z8Z4DFQD6QF84&field5=0')
     return render_template('news.html', news=nws)
 
 
@@ -59,6 +61,7 @@ def new():
     "trailText": Markup(fields.get("trailText")),
     "body": Markup(fields.get("body").replace("h2", "h4").replace("h1", "h3"))
     }
+    returned = requests.post('https://api.thingspeak.com/update?api_key=CD5Z8Z4DFQD6QF84&field6=0')
     return render_template('newscont.html', news=nw)
 
 
@@ -87,16 +90,19 @@ def world():
     cases_formatted = '{:,d}'.format(cases_all)
     deaths_formatted = '{:,d}'.format(deaths_all)
     recovered_formatted = '{:,d}'.format(recovered_all)
+    returned = requests.post('https://api.thingspeak.com/update?api_key=CD5Z8Z4DFQD6QF84&field2=0')
     return render_template('worldwide.html', cases=cases_formatted, deaths=deaths_formatted, recovered=recovered_formatted)
 
 
 @app.route('/countries')
 def country():
+    returned = requests.post('https://api.thingspeak.com/update?api_key=CD5Z8Z4DFQD6QF84&field3=0')
     return render_template('countries.html', a=a)
 
 
 @app.route('/countries/<string:name_of_country>')
 def country_details(name_of_country):
+    returned = requests.post('https://api.thingspeak.com/update?api_key=CD5Z8Z4DFQD6QF84&field4=0')
     b = 0
     for i in countries.json():
         if (i['country'] == name_of_country):

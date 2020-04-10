@@ -23,6 +23,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="CACHE-CONTROL" content="NO-CACHE">
@@ -52,18 +53,55 @@
         <li class="nav-item">
           <a class="nav-link" href="/news" style="margin-right: 10px">News</a>
         </li>
-        <li class="nav-item d-lg-none bg-light" style="margin-left: 20px">
-          <a class="nav-link" href="https://github.com/ArcaEge/Coronavirus-Counter"><img src="/pngimages2" style="margin-right: 5px" width="23px" class=" add_spacing"><span class="text-body">View on GitHub</span></a>
-        </li>
-        <li class="nav-item d-none d-lg-block float-right">
+        <li class="nav-item float-right">
           <a class="nav-link btn btn-light" href="https://github.com/ArcaEge/Coronavirus-Counter"><img src="/pngimages2" style="margin-right: 5px" width="23px"><span class="text-body">View on GitHub</span></a>
         </li>
+        </li>
+        <div class="">
+          <!-- Social Media links -->
+          <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+          <ul class="navbar-nav ml-auto flex-nowrap">
+            <li class="nav-item btn-group float-right">
+              <a href="https://twitter.com/intent/tweet?text=Hi%21%20Look%20at%20this%20cool%20website%20on%20Coronavirus%20data&url=https%3A%2F%2Fbit.ly%2F2VkXKWZ" class="fa fa-twitter lin btn"></a>
+              <a href="https://www.facebook.com/sharer.php?u=https%3A%2F%2Fbit.ly%2F2XqohVj" class="fa fa-facebook lin btn" target="blank" rel="noopener noreferrer"></a>
+              <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fbit.ly%2F39ZhWTl&title=Check%20out%20this%20coronavirus%20data%20website%21" class="fa fa-linkedin lin btn"  target="blank" rel="noopener noreferrer"></a>
+            </li>
+          </ul>
+        </div>
       </ul>
     </div>
     </nav>
     <style>
       .add_spacing {
         margin-left: 5px;
+      }
+      /* Style all font awesome icons */
+      .fa {
+        width: 50px;
+        font-size: 25px;
+        height: 100%;
+        margin-right: 0px;
+      }
+
+      /* Set a specific color for each brand */
+
+      .fa-facebook {
+      background: #3B5998;
+      color: white;
+      }
+
+      .fa-twitter {
+        background: #55ACEE;
+        color: white;
+        margin-left: 100%;
+      }
+
+      .fa-linkedin {
+        background: #007bb5;
+        color: white;
+      }
+      .lin {
+        vertical-align: center;
       }
     </style>
     {% block body %}{% endblock %}

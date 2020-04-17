@@ -3,8 +3,8 @@ from flask import Flask, render_template, redirect, send_file, Markup, request
 
 app = Flask(__name__)
 
-all = requests.get('https://coronavirus-19-api.herokuapp.com/all')
-countries = requests.get('https://corona.lmao.ninja/countries')
+all = requests.get('https://corona.lmao.ninja/v2/all')
+countries = requests.get('https://corona.lmao.ninja/v2/countries')
 a = countries.json()
 
 
